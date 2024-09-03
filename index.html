@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <p>Calendar</p> -->
+    <div class="container">
+        <div class="calendar">
+            <div class="left">
+                <p id="number">04</p>
+                <p id="day">Vendredi</p>
+            </div>
+            <div class="right">
+                <p id="month">Juin</p>
+                <p id="year">2004</p>
+            </div>
+        </div> 
+    </div>
+
+
+    <script>
+            let dateNow = new Date(); //On peut déjà instancier Date() sans lui passer d’argument, auquel cas le constructeur va créer un objet date contenant la date actuelle complète en fonction de l’heure locale du système.
+            console.log(dateNow)
+
+
+            //utilisation des méthodes pour convertir une date au format local 
+            //src : https://www.pierre-giraud.com/javascript-apprendre-coder-cours/objet-date/
+
+            let dayNumber = dateNow.toLocaleString('fr-FR', { day:"numeric"})
+                console.log(dayNumber)
+
+            let day = dateNow.toLocaleString('fr-FR', { weekday:"long"})
+                console.log(day)
+
+            let month = dateNow.toLocaleString('fr-FR', { month:"long"})
+                console.log(month)
+
+            let year = dateNow.toLocaleString('fr-FR', { year:"numeric"})
+                console.log(year)
+             
+            //formatage de l'affichage
+        document.getElementById('number').innerHTML = (dayNumber < 10 ? "0" : "") +dayNumber;
+        document.getElementById('day').innerHTML =  day;
+        document.getElementById('month').innerHTML = month;
+        document.getElementById('year').innerHTML = year;
+
+            
+
+     </script>
+</body>
+</html>
